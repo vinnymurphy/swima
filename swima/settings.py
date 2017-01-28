@@ -1,9 +1,5 @@
 import os
 
-DB_DIR = os.path.join(nos.environ['HOME'], 'dbs')
-if not os.path.isdir(DB_DIR):
-    os.makdirs(DB_DIR, '0600')
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -55,7 +51,7 @@ WSGI_APPLICATION = 'swima.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_DIR, 'swima.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'swima.sqlite3'),
     }
 }
 AUTH_PASSWORD_VALIDATORS = [
