@@ -14,7 +14,7 @@ class StrokeLength(models.Model):
     # TODO: add user
     # SL = (LP – DG) / SC
     user = models.ForeignKey(User, related_name='User', null=True)
-    today = models.DateField(auto_now=True)
+    today = models.DateField()
     pool_length = models.PositiveSmallIntegerField(default=25)
     glide_distance = models.PositiveSmallIntegerField(default=5)
     stroke_count = models.PositiveSmallIntegerField(default=15)
