@@ -11,11 +11,17 @@ class StrokeLength(models.Model):
     forward through the water."""
     'https://smoothstrokes.wordpress.com/2014/03/01/metrics-101-stroke-length/'
 
-    # TODO: add user
-    # SL = (LP – DG) / SC
     user = models.ForeignKey(User, related_name='User', null=True)
     today = models.DateField()
-    pool_length = models.PositiveSmallIntegerField(default=25)
-    glide_distance = models.PositiveSmallIntegerField(default=5)
-    stroke_count = models.PositiveSmallIntegerField(default=15)
-    wingspan = models.PositiveSmallIntegerField(default=68)
+    pool_length = models.PositiveSmallIntegerField(
+        help_text='In yards', default=25)
+    glide_distance = models.PositiveSmallIntegerField(
+        help_text='In yards', default=5)
+    stroke_count = models.PositiveSmallIntegerField(
+        help_text='Number of strokes per length of pool',
+        default=15)
+    wingspan = models.PositiveSmallIntegerField(
+        help_text='Inches Tall', default=68)
+
+    def __str__(self):
+        return '%s stroke length on %s' % (self.user, self.today)
